@@ -7,6 +7,9 @@ import mongoose, { Schema } from 'mongoose';
 
 const PostSchema = new Schema({
   title: String,
+  tags: String,
+  contents: String,
+  cover_url: String,
   // imageURL: String,
   // upvotes: { type: Number, default: 0 },
   // downvotes: { type: Number, default: 0 },
