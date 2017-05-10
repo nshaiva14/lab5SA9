@@ -13,15 +13,15 @@ export const createPost = (req, res) => {
   });
 };
 
-const cleanPosts = (posts) => {
-  return posts.map((post) => {
-    return { id: post._id, title: post.title, tags: post.tags, content: post.content, cover_url: post.cover_url };
-  });
-};
+// const cleanPosts = (posts) => {
+//   return posts.map((post) => {
+//     return { id: post._id, title: post.title, tags: post.tags, content: post.content, cover_url: post.cover_url };
+//   });
+// };
 
 export const getPosts = (req, res) => {
   Post.find({}).then((posts) => {
-    cleanPosts(posts);
+    // cleanPosts(posts);
     res.send(posts);
   }).catch((error) => {
     res.status(500).json({ error });
@@ -37,7 +37,9 @@ export const getPost = (req, res) => {
 };
 
 export const deletePost = (req, res) => {
-  Post.deleteOne(req.params.id).then((post) => {
+  Post.findByIdAndRemove(req.params.id).then((post) => {
+    // cleanPosts(post);
+    console.log(req.params.id);
     res.send(post);
   }).catch((error) => {
     res.status(500).json({ error });

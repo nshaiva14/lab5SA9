@@ -14,8 +14,8 @@ router.route('/posts')
 
 router.route('/posts/:id')
     .get(Posts.getPost)
-    .delete(Posts.deletePost)
-    .put(Posts.updatePost);
+    .put(Posts.updatePost)
+    .delete(Posts.deletePost);
 
 
 export default router;
