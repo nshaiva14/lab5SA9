@@ -41,5 +41,5 @@ app.use('/api', apiRouter);
 
 // default index route
 app.get('/', (req, res) => {
-  res.send('hi');
+  res.send('Welcome');
 });
