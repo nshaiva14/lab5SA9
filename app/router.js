@@ -11,8 +11,6 @@ router.get('/', (req, res) => {
 router.route('/posts')
   .post(Posts.createPost)
   .get(Posts.getPosts);
-  // .delete(/*someMethod*/);
-
 
 router.route('/posts/:id')
     .get(Posts.getPost)
