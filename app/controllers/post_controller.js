@@ -4,7 +4,7 @@ export const createPost = (req, res) => {
   const p = new Post();
   p.title = req.body.title;
   p.tags = req.body.tags;
-  p.contents = req.body.contents;
+  p.content = req.body.content;
   p.cover_url = req.body.cover_url;
   p.username = req.user.username;
   console.log(p.username);

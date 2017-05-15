@@ -5,12 +5,12 @@ import User from '../models/user_model';
 dotenv.config({ silent: true });
 
 export const signin = (req, res, next) => {
-  console.log('signing in');
+  // console.log('signing in');
   return res.send({ token: tokenForUser(req.user) });
 };
 
 const createUser = (req, res, user) => {
-  console.log('creating user');
+  // console.log('creating user');
   const u = new User();
   u.email = req.body.email;
   u.password = req.body.password;
@@ -23,7 +23,7 @@ const createUser = (req, res, user) => {
 };
 
 export const signup = (req, res, next) => {
-  console.log('signing up');
+  // console.log('signing up');
   const email = req.body.email;
   const password = req.body.password;
   // const username = req.body.username;
@@ -33,7 +33,7 @@ export const signup = (req, res, next) => {
   }
 
   User.findOne({ email }).then((user) => {
-    console.log('finding one');
+    // console.log('finding one');
     createUser(req, res, user);
   }).catch((error) => {
     res.status(422).send('Your email is already taken! ');
