@@ -6,6 +6,7 @@ const SALT_WORK_FACTOR = 10;
 const UserSchema = new Schema({
   email: { type: String, unique: true, lowercase: true },
   password: String,
+  username: String,
 }, {
   toJSON: {
     virtuals: true,

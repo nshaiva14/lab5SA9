@@ -14,6 +14,7 @@ const createUser = (req, res, user) => {
   const u = new User();
   u.email = req.body.email;
   u.password = req.body.password;
+  u.username = req.body.username;
   u.save().then((user2) => {
     return res.send({ token: tokenForUser(u) });
   }).catch((error) => {
@@ -25,9 +26,10 @@ export const signup = (req, res, next) => {
   console.log('signing up');
   const email = req.body.email;
   const password = req.body.password;
+  // const username = req.body.username;
 
   if (!email || !password) {
-    res.status(422).send('You must provide email and password! ');
+    res.status(422).send('You must provide email, username, and password! ');
   }
 
   User.findOne({ email }).then((user) => {
