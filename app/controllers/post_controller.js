@@ -13,12 +13,6 @@ export const createPost = (req, res) => {
   });
 };
 
-// const cleanPosts = (posts) => {
-//   return posts.map((post) => {
-//     return { id: post._id, title: post.title, tags: post.tags, content: post.content, cover_url: post.cover_url };
-//   });
-// };
-
 export const getPosts = (req, res) => {
   Post.find({}).then((posts) => {
     // cleanPosts(posts);
