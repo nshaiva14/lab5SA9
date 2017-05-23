@@ -13,7 +13,7 @@ const signS3 = (req, res) => {
     ACL: 'public-read',
   };
   s3.getSignedUrl('putObject', s3Params, (err, data) => {
-    if (err) { res.status(422).end(); }
+    if (err) { console.log(`error! ${err}`); return res.status(422).end(); }
 
     const returnData = {
       signedRequest: data,
