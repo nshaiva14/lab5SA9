@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
@@ -5,6 +7,7 @@ import path from 'path';
 import mongoose from 'mongoose';
 import apiRouter from './router';
 
+dotenv.config({ silent: true });
 // initialize
 const app = express();
 // START THE SERVER

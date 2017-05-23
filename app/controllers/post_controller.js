@@ -5,7 +5,7 @@ export const createPost = (req, res) => {
   p.title = req.body.title;
   p.tags = req.body.tags;
   p.content = req.body.content;
-  p.cover_url = req.body.cover_url;
+  p.preview = req.body.preview;
   p.username = req.user.username;
   console.log(p.username);
   p.save().then((post) => {
@@ -41,7 +41,7 @@ export const deletePost = (req, res) => {
 };
 
 export const updatePost = (req, res) => {
-  Post.findByIdAndUpdate(req.params.id, { $set: { title: req.body.title, tags: req.body.tags, content: req.body.content, cover_url: req.body.cover_url } }, { new: true }).then((post) => {
+  Post.findByIdAndUpdate(req.params.id, { $set: { title: req.body.title, tags: req.body.tags, content: req.body.content, preview: req.body.preview } }, { new: true }).then((post) => {
     res.send(post);
   }).catch((error) => {
     res.status(500).json({ error });

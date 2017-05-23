@@ -4,7 +4,7 @@ const PostSchema = new Schema({
   title: String,
   tags: String,
   content: String,
-  cover_url: String,
+  preview: String,
   username: String,
 }, {
   toJSON: {
